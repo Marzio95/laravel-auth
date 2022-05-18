@@ -39,8 +39,9 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|unique;posts',
+            'title' => 'required|unique:posts',
             'postText' => 'max:500',
+            'slug' => Post::createSlug('title'),
         ]);
 
         $formData = $request->all();
