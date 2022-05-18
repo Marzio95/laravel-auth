@@ -12178,3 +12178,17 @@ fieldset:disabled .btn {
   }
 }
 
+.tasto_show {
+  border: 1px solid black;
+  padding: 0.5rem;
+  background-color: green;
+  width: inherit;
+  margin: 0.5rem auto;
+  text-transform: uppercase;
+}
+
+a {
+  text-decoration: none;
+  color: gold;
+}
+

@@ -10,7 +10,6 @@ class Post extends Model
     protected $fillable = [
         'title',
         'postText',
-        'slug',
     ];
 
     public static function createSlug($originalString)
