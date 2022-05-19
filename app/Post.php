@@ -25,7 +25,7 @@ class Post extends Model
         $slug = $baseSlug;
         $_i = 1;
         while (self::where('slug', $slug)->first()) {
-            $slug = "$baseSlug.$_i";
+            $slug = "$baseSlug-$_i";
             $_i++;
         }
         return $slug;

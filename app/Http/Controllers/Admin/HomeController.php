@@ -31,7 +31,7 @@ class HomeController extends Controller
     public function slugger(Request $request)
     {
         return response()->json([
-            'slug' => Post::generateSlug($request->all()['originalString'])
+            'slug' => Post::createSlug($request->all()['originalString'])
         ]);
     }
 }
