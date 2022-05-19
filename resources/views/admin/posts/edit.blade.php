@@ -19,7 +19,7 @@
                 @enderror
             </div>
         </div>
-        <div class="form-group row">
+        <div class="form-group row mt-3 mb-3">
             <label for="slug" class="col-sm-2 col-form-label">slug</label>
             <div class="col-sm-10">
                 <input value="{{ old('slug', $post->slug) }}" type="text" class="form-control" id="slug"

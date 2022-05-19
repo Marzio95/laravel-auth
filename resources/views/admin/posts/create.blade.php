@@ -18,7 +18,7 @@
             </div>
         </div>
 
-        <div class="form-group row">
+        <div class="form-group row mt-3 mb-3">
             <label for="slug" class="col-sm-2 col-form-label">Slug</label>
             <div class="col-sm-10">
                 <input value="{{ old('slug') }}" type="text" class="form-control" id="slug" placeholder="Slug"
@@ -26,6 +26,12 @@
                 @error('slug')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
+            </div>
+        </div>
+
+        <div class="form-group row mt-3 mb-3">
+            <div class="col-4">
+                <input class="btn-slugger" type="button" value="Genera il tuo slug">
             </div>
         </div>
 
