@@ -39,14 +39,14 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|unique:posts',
-            'postText' => 'max:500',
-            'slug' => Post::createSlug('title'),
+            'title' => 'required|unique:posts|max:20',
+            'postText' => 'required|max:500',
+            'slug' => 'required',
         ]);
 
         $formData = $request->all();
         $newPost = Post::create($formData);
-        return redirect()->route('admin.post.show', $newPost->id);
+        return redirect()->route('admin.posts.show', $newPost->slug);
     }
 
     /**
@@ -84,13 +84,14 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         $request->validate([
-            'title' => ['required', Rule::unique('posts')->ignore($post)],
+            'title' => 'required|max:20',
             'postText' => 'max:500',
+            'slug' => ['required', Rule::unique('posts')->ignore($post)],
         ]);
 
         $formData = $request->all();
         $post->update($formData);
-        return redirect()->route('admin.posts.show', $post->id);
+        return redirect()->route('admin.posts.show', $post->slug);
     }
 
 

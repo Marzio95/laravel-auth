@@ -10,9 +10,20 @@
         <div class="form-group row">
             <label for="title" class="col-sm-2 col-form-label">Title</label>
             <div class="col-sm-10">
-                <input value="{{ old('name') }}" type="text" class="form-control" id="title" placeholder="Title"
+                <input value="{{ old('title') }}" type="text" class="form-control" id="title" placeholder="Title"
                     name="title">
                 @error('title')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="slug" class="col-sm-2 col-form-label">Slug</label>
+            <div class="col-sm-10">
+                <input value="{{ old('slug') }}" type="text" class="form-control" id="slug" placeholder="Slug"
+                    name="slug">
+                @error('slug')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
@@ -28,6 +39,7 @@
                 @enderror
             </div>
         </div>
+
         <div class="form-group row m-5 d-flex">
             <div class="col-sm-10">
                 <button type="submit" class="btn btn-primary">Sign in</button>

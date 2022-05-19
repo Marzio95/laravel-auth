@@ -21,7 +21,7 @@
                         <th scope="row">{{ $post->id }}</th>
                         <td>{{ $post->title }}</td>
                         <td>{{ $post->postText }}</td>
-                        <td><a href="{{ route('admin.posts.show', $post->id) }}">Post</a></td>
+                        <td><a href="{{ route('admin.posts.show', $post->slug) }}">Post</a></td>
                     </tr>
                 @endforeach
             </tbody>

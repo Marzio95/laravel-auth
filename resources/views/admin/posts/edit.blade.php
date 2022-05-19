@@ -6,7 +6,7 @@
 
 
 @section('pageMain')
-    <form class="m-auto w-75 mt-4" method="POST" action="{{ route('admin.posts.update', $post->id) }}">
+    <form class="m-auto w-75 mt-4" method="POST" action="{{ route('admin.posts.update', $post->slug) }}">
         @csrf
         @method('PUT')
         <div class="form-group row">
@@ -19,6 +19,17 @@
                 @enderror
             </div>
         </div>
+        <div class="form-group row">
+            <label for="slug" class="col-sm-2 col-form-label">slug</label>
+            <div class="col-sm-10">
+                <input value="{{ old('slug', $post->slug) }}" type="text" class="form-control" id="slug"
+                    placeholder="slug" name="slug">
+                @error('slug')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+            </div>
+        </div>
+
         <div class="form-group row">
             <label for="postText" class="col-sm-2 col-form-label">Text</label>
             <div class="col-sm-10">

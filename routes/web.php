@@ -21,8 +21,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'Admin\HomeController@index')->name('homepage');
-
 Route::middleware('auth')
     ->namespace('Admin')
     ->name('admin.')
