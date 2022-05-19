@@ -11,7 +11,7 @@
     <title>@yield('pageTitle')</title>
 </head>
 
-<body>
+<body onclick="event.stopPropagation()" class="body">
 
     @include('admin.partials.header')
 

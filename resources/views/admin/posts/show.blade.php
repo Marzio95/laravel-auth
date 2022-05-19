@@ -7,13 +7,11 @@
             <div class="card-body">
                 <h5 class="card-title">{{ $post->title }}</h5>
                 <p class="card-text mb-3">{{ $post->postText }}.</p>
-                <a class="tasto_show bg-black mt-3" href="{{ route('admin.posts.edit', $post->slug) }}">Modifica Post</a>
+                <a class="tasto_show bg-green mt-3" href="{{ route('admin.posts.edit', $post->slug) }}">Modifica Post</a>
 
-                <form method="POST" data-base="{{ route('admin.posts.index') }}">
-                    @csrf
-                    @method('DELETE')
-                    <button class="bg-danger text-white p-1 mt-4">ELIMINA POST</button>
-                </form>
+
+                <button data-id="{{ $post->slug }}" onclick="event.stopPropagation()"
+                    class="btn-delete bg-danger text-white p-1 mt-4">ELIMINA POST</button>
             </div>
         </div>
 
@@ -26,6 +24,23 @@
                     lista</a>
             </div>
         </div>
+
+        <section id="confirmation-overlay" class="overlay d-none">
+            <div class="popup">
+                <h2>Se continui l'elemento verrà eliminato</h2>
+                <div class="d-flex justify-content-evenly mt-5">
+                    <form method="POST" data-base="{{ route('admin.posts.index') }}">
+                        @csrf
+                        @method('DELETE')
+                        <button onclick="event.stopPropagation()" class="bg-danger text-white p-2 ">ELIMINA
+                            POST</button>
+                    </form>
+                    <button id="btn-no" class="btn bg-primary">NO</button>
+                </div>
+            </div>
+
+        </section>
+
 
     </div>
 @endsection

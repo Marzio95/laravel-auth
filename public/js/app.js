@@ -40126,6 +40126,19 @@ var app = new Vue({
   el: '#app'
 }); // MY JS FUNCTIONS
 
+var confirmationOverlay = document.getElementById('confirmation-overlay');
+var confirmationForm = confirmationOverlay.querySelector('form');
+document.querySelectorAll('.btn-delete').forEach(function (element) {
+  element.addEventListener('click', function () {
+    confirmationOverlay.classList.remove('d-none');
+    confirmationForm.action = confirmationForm.dataset.base + '/' + this.dataset.id;
+  });
+});
+document.querySelector('.body').addEventListener('click', function () {
+  confirmationForm.action = '';
+  confirmationOverlay.classList.add('d-none');
+});
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
