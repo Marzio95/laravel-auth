@@ -12233,3 +12233,12 @@ tr a {
   margin-right: 3rem;
 }
 
+.mybtn_list {
+  background-color: black;
+  color: white;
+  text-align: center;
+  width: 10rem;
+  height: 3rem;
+  line-height: 3rem;
+}
+
